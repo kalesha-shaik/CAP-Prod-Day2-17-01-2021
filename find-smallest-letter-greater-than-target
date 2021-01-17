@@ -1,0 +1,25 @@
+// Leetcode
+
+
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int len = letters.length;
+        int start = 0;
+        int last = len - 1;
+        int answer = 0;
+        while (start <= last)
+        {
+            int mid = start+(last - start)/2;
+            if (letters[mid] > target)
+            {
+                answer = mid;
+                last = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        return letters[answer];
+    }
+}
